@@ -4,6 +4,14 @@ body {
     font-family: 'Lato';
 }
 
+.header {
+  padding: 60px;
+  text-align: #4b0bc2;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
 .item {
     background-color: white;
     padding: 15px;

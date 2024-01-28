@@ -1,9 +1,9 @@
 const db = require('../../src/persistence');
 const addItem = require('../../src/routes/addItem');
 const ITEM = { id: 12345 };
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('uuid/v4');
 
-jest.mock('uuid');
+jest.mock('uuid/v4', () => jest.fn());
 
 jest.mock('../../src/persistence', () => ({
     removeItem: jest.fn(),
@@ -17,7 +17,7 @@ test('it stores item correctly', async () => {
     const req = { body: { name } };
     const res = { send: jest.fn() };
 
-    uuidv4.mockReturnValue(id);
+    uuid.mockReturnValue(id);
 
     await addItem(req, res);
 
